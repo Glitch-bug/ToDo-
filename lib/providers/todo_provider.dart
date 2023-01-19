@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todo/models/item.dart';
 
-final List <Item>initialItems = [];
+final List <Item>initialItems = [
+
+];
 
 
 class ItemProvider with ChangeNotifier {
@@ -10,6 +12,9 @@ class ItemProvider with ChangeNotifier {
 
   List <Item> get items => _items;
 
+  Iterable <Item> get cItems => _items.where((element) => element.completed);
+  
+  Iterable <Item> get uItems => _items.where((element) => !element.completed);
   void addItem(Item item){
     _items.add(item);
     notifyListeners();

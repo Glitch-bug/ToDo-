@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:todo/providers/todo_provider.dart';
+import 'package:todo/screens/todo_list.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create:(_)=>ItemProvider(),)
+      ],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -23,8 +32,17 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        primaryColor: Colors.black,
+        backgroundColor: Colors.black,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      darkTheme: ThemeData(
+        primaryColor: Colors.black,
+        backgroundColor: Colors.black,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/':(context) => TodoList(),
+      },
     );
   }
 }
