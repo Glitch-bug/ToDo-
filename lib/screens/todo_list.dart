@@ -37,7 +37,7 @@ class _TodoListState extends State<TodoList> {
               onPressed:(){
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: ( context) => const Add()
+                    builder: (context) => const Add()
                   )
                 );
               }
